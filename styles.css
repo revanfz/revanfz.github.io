@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&family=Paytone+One&display=swap");
+
+:root {
+  --bg: #fbf1c7;
+  --fg: #3c3836;
+  --bg_rgb: 251, 241, 199;
+  --fg_rgb: 60, 56, 54;
+  --secondary: #8ec07c;
+  --ternary: #458588;
+  --accent: #b16286;
+
+  box-sizing: border-box;
+}
+
+.dark {
+  --bg: #282828;
+  --fg: #ebdbb2;
+  --bg_rgb: 20, 20, 20;
+  --fg_rgb: 235, 219, 178;
+  --secondary: #8ec07c;
+  --ternary: #458588;
+
+  --accent: #cc241d;
+}
+
+* {
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  font-size: 20px;
+  font-family: "El Messiri", cursive;
+}
+
+body {
+  color: var(--fg);
+  margin: 0;
+  background-color: var(--bg);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav {
+  height: 3.25rem;
+  display: flex;
+  position: sticky;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+}
+
+.logo {
+  font-weight: 900;
+  padding: 10px 20px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav--right {
+  display: flex;
+}
+
+.nav--right--left .nav__list__item__link {
+  padding: 10px;
+  margin: 5px;
+}
+
+.nav--right--right .nav__list__item__link {
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+nav a:hover {
+  background-color: rgba(var(--fg_rgb), 0.1);
+  border-radius: 3px;
+}
+
+.mail-button {
+  margin-left: 10px;
+  padding: 5px 15px;
+  background-color: var(--accent);
+  border-radius: 5px;
+}
+
+main {
+  height: 100vh;
+  max-width: 1000px;
+  margin: auto;
+}
+
+main > * {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  height: 100%;
+  gap: 100px;
+  /* padding-bottom: 4rem; */
+}
+
+[class*="__text"] {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.greetings {
+  font-size: 60px;
+  margin: 0;
+  line-height: 3.25rem;
+}
+
+.decor {
+  line-height: 3.25rem;
+  font-size: 60px;
+  background-image: linear-gradient(to right, var(--secondary), var(--ternary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project__link {
+  padding: 10px 20px;
+  width: 25%;
+  text-align: center;
+  border-radius: 5px;
+  border: solid 1px var(--fg);
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.project__link:hover {
+  background-color: white;
+  color: var(--bg);
+}
+
+.heading {
+  font-size: 60px;
+  margin: 0;
+  padding-top: 4rem;
+}
+
+#about-me {
+  display: block;
+  padding: 0;
+}
+
+#about-me > .container {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  align-items: center;
+  margin: 0;
+}
+
+#about-me p {
+  margin: 10px 0;
+}
+
+.profile-picture {
+  border-radius: 10px;
+  background-color: var(--fg);
+  width: 450px;
+  box-shadow: 20px 20px var(--accent);
+  padding-top: 20px;
+  justify-content: flex-end;
+}
+
+.shadow-box {
+  width: 450px;
+  background-color: cyan;
+  translate: (-50%, -50%);
+}
