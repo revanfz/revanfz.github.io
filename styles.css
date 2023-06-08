@@ -8,7 +8,6 @@
   --secondary: #8ec07c;
   --ternary: #458588;
   --accent: #b16286;
-
   box-sizing: border-box;
 }
 
@@ -19,7 +18,6 @@
   --fg_rgb: 235, 219, 178;
   --secondary: #8ec07c;
   --ternary: #458588;
-
   --accent: #cc241d;
 }
 
@@ -102,12 +100,13 @@ nav a:hover {
 }
 
 main {
+  position: relative;
   height: 100vh;
   max-width: 1000px;
   margin: auto;
 }
 
-main > * {
+main > div {
   display: flex;
   align-items: center;
   padding-top: 2rem;
@@ -188,4 +187,9 @@ main > * {
   width: 450px;
   background-color: cyan;
   translate: (-50%, -50%);
+}
+
+footer {
+  width: 100%;
+  position: absolute;
 }
