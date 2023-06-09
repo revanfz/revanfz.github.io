@@ -99,9 +99,13 @@ nav a:hover {
   border-radius: 5px;
 }
 
+.wrapper {
+  width: 100%;
+}
+
 main {
   position: relative;
-  height: 100vh;
+  height: 100%;
   max-width: 1000px;
   margin: auto;
 }
@@ -109,8 +113,8 @@ main {
 main > div {
   display: flex;
   align-items: center;
-  padding-top: 2rem;
-  height: 100%;
+  padding-top: 1.2rem;
+  height: 100vh;
   gap: 100px;
   /* padding-bottom: 4rem; */
 }
@@ -151,6 +155,65 @@ main > div {
   color: var(--bg);
 }
 
+#intro > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro__tech-stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  position: absolute;
+  border: 1px solid var(--fg);
+  border-radius: 50%;
+  background-color: transparent;
+  line-height: 50px;
+}
+
+[class*="circle--"] > * {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle--first {
+  width: 80px;
+  height: 80px;
+}
+
+.circle--second {
+  width: 160px;
+  height: 160px;
+}
+
+.circle--third {
+  width: 240px;
+  height: 240px;
+}
+
+.circle--fourth {
+  width: 320px;
+  height: 320px;
+}
+
+.rotate {
+  animation: rotate infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .heading {
   font-size: 60px;
   margin: 0;
@@ -159,7 +222,6 @@ main > div {
 
 #about-me {
   display: block;
-  padding: 0;
 }
 
 #about-me > .container {
@@ -190,7 +252,12 @@ main > div {
 }
 
 footer {
-  width: 100%;
   position: absolute;
-  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: #000;
+}
+
+footer > p {
+  padding: 10px 0;
 }
