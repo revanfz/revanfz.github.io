@@ -8,7 +8,6 @@
   --secondary: #8ec07c;
   --ternary: #458588;
   --accent: #b16286;
-  box-sizing: border-box;
 }
 
 .dark {
@@ -26,6 +25,7 @@
   scroll-behavior: smooth;
   font-size: 20px;
   font-family: "El Messiri", cursive;
+  box-sizing: border-box;
 }
 
 body {
@@ -34,28 +34,40 @@ body {
   background-color: var(--bg);
 }
 
-header {
-  position: fixed;
-  top: 0;
+.wrapper {
   width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-nav {
-  height: 3.25rem;
-  display: flex;
-  position: sticky;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+header {
+  padding: 5px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
   background-color: transparent;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 50;
+}
+
+nav {
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav a {
+  text-overflow: clip;
+  font-size: 1rem;
 }
 
 .logo {
+  font-size: 1.5rem;
   font-weight: 900;
-  padding: 10px 20px;
+  padding: 5px 10px;
 }
 
 li {
@@ -67,18 +79,21 @@ a {
   text-decoration: none;
 }
 
+.nav--left {
+  padding: 0px 0px 0px 30px;
+}
+
 .nav--right {
   display: flex;
+  padding: 0px 40px 0px 0px;
 }
 
-.nav--right--left .nav__list__item__link {
-  padding: 10px;
-  margin: 5px;
-}
-
-.nav--right--right .nav__list__item__link {
+.nav--right--left a {
   padding: 10px 20px;
-  margin: 5px;
+}
+
+.nav--right--right a {
+  padding: 10px 20px;
 }
 
 .nav__list {
@@ -99,13 +114,8 @@ nav a:hover {
   border-radius: 5px;
 }
 
-.wrapper {
-  width: 100%;
-}
-
 main {
   position: relative;
-  height: 100%;
   max-width: 1000px;
   margin: auto;
 }
@@ -113,10 +123,9 @@ main {
 main > div {
   display: flex;
   align-items: center;
-  padding-top: 1.2rem;
+  justify-content: space-between;
   height: 100vh;
-  gap: 100px;
-  /* padding-bottom: 4rem; */
+  gap: 50px;
 }
 
 [class*="__text"] {
@@ -134,7 +143,7 @@ main > div {
 .decor {
   line-height: 3.25rem;
   font-size: 60px;
-  background-image: linear-gradient(to right, var(--secondary), var(--ternary));
+  background-image: linear-gradient(to right, var(--accent), var(--ternary));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -142,7 +151,7 @@ main > div {
 
 .project__link {
   padding: 10px 20px;
-  width: 25%;
+  width: 40%;
   text-align: center;
   border-radius: 5px;
   border: solid 1px var(--fg);
@@ -227,9 +236,8 @@ main > div {
 #about-me > .container {
   display: flex;
   flex-direction: row;
-  gap: 100px;
+  gap: 50px;
   align-items: center;
-  margin: 0;
 }
 
 #about-me p {
@@ -238,9 +246,9 @@ main > div {
 
 .profile-picture {
   border-radius: 10px;
-  background-color: var(--fg);
-  width: 450px;
-  box-shadow: 20px 20px var(--accent);
+  background-color: var(--accent);
+  width: 400px;
+  box-shadow: 12px 12px var(--ternary);
   padding-top: 20px;
   justify-content: flex-end;
 }
@@ -255,9 +263,48 @@ footer {
   position: absolute;
   width: 100%;
   text-align: center;
-  background: #000;
+  background: rgba(var(--bg_rgb), 0.2);
+  margin-top: 120px;
 }
 
 footer > p {
+  color: var(--fg);
   padding: 10px 0;
+}
+
+@media (max-width: 1080px) {
+  * {
+    margin: auto;
+  }
+  nav {
+    display: inline-block;
+    text-align: center;
+  }
+  .nav--left {
+    padding: 0;
+  }
+  main > div {
+    display: block;
+    position: relative;
+    padding-top: 160px;
+  }
+  .nav__list {
+    padding: 0px 20px;
+  }
+  header {
+    padding: 20px;
+  }
+  .nav--right {
+    display: inline-block;
+  }
+  #about-me > .container {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  .intro__tech-stack {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
