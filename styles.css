@@ -29,6 +29,7 @@
 }
 
 body {
+  transition: color 0.3s ease-in;
   color: var(--fg);
   margin: 0;
   background-color: var(--bg);
@@ -42,7 +43,6 @@ body {
 }
 
 header {
-  padding: 5px 0;
   position: fixed;
   width: 100%;
   z-index: 50;
@@ -52,22 +52,12 @@ header {
 }
 
 nav {
-  height: 3rem;
   width: 100%;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-nav a {
-  text-overflow: clip;
-  font-size: 1rem;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 900;
-  padding: 5px 10px;
+  padding: 0px 30px;
 }
 
 li {
@@ -75,31 +65,46 @@ li {
 }
 
 a {
+  margin: 0;
   color: var(--fg);
   text-decoration: none;
+  transition: color 0.3s ease-in;
 }
 
-.nav--left {
-  padding: 0px 0px 0px 30px;
+nav a:not(.nav--right--right a) {
+  padding: 5px 10px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
 }
 
 .nav--right {
   display: flex;
-  padding: 0px 40px 0px 0px;
+  align-items: center;
 }
 
-.nav--right--left a {
-  padding: 10px 20px;
+.nav--right li {
+  padding: 10px;
 }
 
-.nav--right--right a {
-  padding: 10px 20px;
+.nav--right--right {
+  margin-left: 100px;
+}
+
+.nav--right--right a:not(.mail-button) {
+  padding-top: 10px;
+}
+
+.nav--right--right i {
+  font-size: 1.2rem;
 }
 
 .nav__list {
   display: flex;
+  align-items: center;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 nav a:hover {
@@ -108,10 +113,30 @@ nav a:hover {
 }
 
 .mail-button {
-  margin-left: 10px;
-  padding: 5px 15px;
+  text-transform: uppercase;
+  font-weight: 900;
   background-color: var(--accent);
   border-radius: 5px;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+[class*="fa-"] {
+  padding: 5px 10px;
+}
+
+.mode-icon {
+  animation: transform 0.3s;
+}
+
+.mode-icon:hover {
+  transform: scale(0.9);
+}
+
+.mode-icon:active {
+  transform: scale(1);
 }
 
 main {
@@ -164,6 +189,10 @@ main > div {
   color: var(--bg);
 }
 
+#intro {
+  padding-top: 3rem;
+}
+
 #intro > div {
   width: 50%;
   display: flex;
@@ -188,6 +217,7 @@ main > div {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+  background-color: var(--bg);
 }
 
 .circle--first {
@@ -253,6 +283,49 @@ main > div {
   justify-content: flex-end;
 }
 
+#tools {
+  width: 100%;
+  display: inline-block;
+}
+
+#tools > * {
+  width: 100%;
+}
+
+.tool-list {
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.tool--favorite ul {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.tool--favorite li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--fg);
+  width: 150px;
+  height: 150px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.tool--favorite {
+  fill: var(--fg);
+}
+
+.tool--favorite p {
+  padding: 0;
+  margin-bottom: 0;
+}
+
 .shadow-box {
   width: 450px;
   background-color: cyan;
@@ -265,11 +338,13 @@ footer {
   text-align: center;
   background: rgba(var(--bg_rgb), 0.2);
   margin-top: 120px;
+  padding: 20px 0;
 }
 
 footer > p {
   color: var(--fg);
-  padding: 10px 0;
+  font-size: 16px;
+  margin: 0;
 }
 
 @media (max-width: 1080px) {

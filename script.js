@@ -9,17 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function darkMode() {
-  let selector = document.querySelector("body");
-  let icon = document.querySelector(".mode");
-  let target = icon.firstElementChild;
-  let new_icon = document.createElement("i");
-  if (target.classList.contains("fa-moon")) {
-    new_icon.classList.add("fa-sharp", "fa-solid", "fa-sun");
-    selector.classList.remove("dark");
+  let body = document.querySelector("body");
+  let mode = document.querySelector(".dark-mode");
+  let icon = mode.querySelector(".mode-icon");
+  if (mode.classList.contains("active")) {
+    icon.classList.replace("fa-moon", "fa-sun");
   } else {
-    selector.classList.add("dark");
-    new_icon.classList.add("fa-sharp", "fa-solid", "fa-moon");
+    icon.classList.replace("fa-sun", "fa-moon");
   }
-  icon.removeChild(icon.firstElementChild);
-  icon.appendChild(new_icon);
+  mode.classList.toggle("active");
+  body.classList.toggle("dark");
 }
