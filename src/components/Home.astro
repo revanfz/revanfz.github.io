@@ -1,0 +1,54 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+<section class={className} {...rest}>
+  <div class="intro lg:w-1/2">
+    <h1 class="greetings text-2xl lg:text-4xl">
+      Hi, my name is <br />
+      <span
+        class="bg-linear-to-r from-(--green) to-(--dark-purple) bg-clip-text text-transparent text-3xl lg:text-5xl"
+        >Revan Fauzi Algifari</span
+      >
+    </h1>
+    <p class="text-md my-4 lg:text-xl">
+      I am full stack web developer from Sumatera Barat, Indonesia. Using modern
+      technologies, I am willing to help people turn their ideas into reality.
+    </p>
+    <a href="#projects"
+      class="text-sm md:text-lg font-bold rounded bg-(--dark-aqua) text-(--bg) border border-(--fg) p-2 hover:bg-(--(--bg2)) hover:cursor-pointer"
+    >
+      My Projects
+    </a>
+  </div>
+
+  <div class="graphics flex flex-1 items-center justify-center lg:w-1/2">
+    <div
+      class="absolute flex size-[50px] border-fg border rounded-full animate-rotate  sm:size-[60px] md:size-[80px]"
+    >
+      <i
+        class="absolute top-1/2 -translate-1/2 bg-(--bg) p-1 text-2xl fa-brands fa-square-js"
+      ></i>
+    </div>
+    <div
+      class="absolute flex size-[100px] border-fg border rounded-full animate-rotate-slow  sm:size-[120px] md:size-[160px]"
+    >
+      <i
+        class="absolute top-1/2 -translate-1/2 bg-(--bg) p-1 text-2xl fa-brands fa-html5"
+      ></i>
+    </div>
+    <div
+      class="absolute flex size-[150px] border-fg border rounded-full animate-rotate-slowest  sm:size-[180px] md:size-[240px]"
+    >
+      <i
+        class="absolute top-1/2 -translate-1/2 bg-(--bg) p-1 text-2xl fa-brands fa-css3-alt"
+      ></i>
+    </div>
+    <div
+      class="absolute flex size-[200px] border-fg border rounded-full animate-rotate-snail  sm:size-[240px] md:size-[320px]"
+    >
+      <i
+        class="absolute top-1/2 -translate-1/2 bg-(--bg) p-1 text-2xl fa-brands fa-vuejs"
+      ></i>
+    </div>
+  </div>
+</section>
