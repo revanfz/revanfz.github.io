@@ -8,6 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   base: '/revanfz.github.io/',
   integrations: [vue()],
+  outDir: './docs',
   vite: {
     plugins: [tailwindcss()]
   }
