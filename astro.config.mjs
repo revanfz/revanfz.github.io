@@ -7,7 +7,6 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://revanfz.github.io',
-  base: '/revanfz.github.io/docs/',
   integrations: [vue()],
   outDir: './docs',
   vite: {
