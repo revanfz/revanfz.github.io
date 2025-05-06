@@ -119,7 +119,6 @@ onUnmounted(() => {
       class="absolute hover:cursor-pointer disabled:cursor-not-allowed top-1/2 -right-8 rounded-full size-12 shadow-gray-500 shadow-md bg-(--bg3) disabled:bg-(--fg4)"
     >
     <FontAwesomeIcon :icon="faAngleRight" class="text-xl" />
-    {{ visibleItem }} {{  index }} {{  itemWidth  }}
     </button>
   </section>
 </template>
