@@ -1,22 +1,28 @@
-<script>
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
 import NavLink from "./NavLink.vue";
-
-export default {
-  data() {
-    return {
-      message: "Hello world!",
-      pages: [
-        { name: "Home", id: "" },
-        { name: "About", id: "about" },
-        { name: "Tool", id: "projects" },
-        { name: "Contact", id: "contact" },
-      ],
-    };
-  },
-  components: {
-    NavLink,
-  },
-};
+const pages = [
+  { name: "Home", id: "" },
+  { name: "About", id: "about" },
+  { name: "Tool", id: "projects" },
+  { name: "Contact", id: "contact" },
+];
+const isDarkMode = ref(false)
+const switchMode = () => {
+  if (isDarkMode.value) {
+    document.body.classList.remove("dark")
+    isDarkMode.value = false
+  } else {
+    document.body.classList.add("dark")
+    isDarkMode.value = true
+  }
+}
+onMounted(() => {
+  const body = document.querySelector("body") as HTMLBodyElement;
+  if (body.classList.contains("dark")) {
+    isDarkMode.value = true
+  }
+})
 </script>
 
 <template>
@@ -32,39 +38,32 @@ export default {
       />
     </ul>
     <div class="socials hidden lg:block">
-      <ul class="nav__list flex flex-row">
-        <!-- Dark Mode -->
-        <li class="nav__list__item btn">
-          <a
-            class="nav__list__item__link dark-mode active"
-            onclick="darkMode()"
-          >
-            <i class="fa-sharp fa-solid fa-moon mode-icon"></i>
-          </a>
+      <ul class="flex gap-4">
+        <li>
+          <button @click="switchMode">
+            <i class="fa-sharp fa-solid mode-icon" :class="{'fa-moon': !isDarkMode, 'fa-sun': isDarkMode}"></i>
+          </button>
         </li>
         <!-- Github -->
-        <li class="nav__list__item">
+        <li>
           <a
             href="https://github.com/revanfz"
             target="_blank"
-            class="nav__list__item__link"
             ><i class="fa-brands fa-github"></i
           ></a>
         </li>
         <!-- LinkedIn -->
-        <li class="nav__list__item">
+        <li>
           <a
             href="https://linkedin.com/in/revanfauzialgifari"
             target="_blank"
-            class="nav__list__item__link"
             ><i class="fa-brands fa-linkedin"></i
           ></a>
         </li>
         <!-- Mail -->
-        <li class="nav__list__item">
-          <a
+        <li>
+          <a class="p-2 bg-(--bg2) text-(--fg2) rounded-md"
             href="mailto:revanfauzi81@gmail.com"
-            class="nav__list__item__link mail-button"
             >Let's work together</a
           >
         </li>

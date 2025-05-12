@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from "vue";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import ProjectItem from "./ProjectItem.vue";
+import { ref } from "vue";
+import Carousel from "./Carousel.vue";
 
 interface Project {
   id: number;
@@ -11,22 +9,7 @@ interface Project {
   url: string;
   image: "profile.png";
 }
-const index = ref(0);
-const visibleItem = ref(1);
-const itemWidth = ref(300)
-const refItem = ref<HTMLElement[]>([]);
-const refContainer = ref<HTMLElement | null>(null);
 
-const nextProject = () => {
-    if (index.value < projects.value.length - 1) {
-        index.value++;
-    }
-};
-const prevProject = () => {
-    if (index.value !== 0) {
-        index.value--;
-    }
-};
 const projects = ref<Project[]>([
   {
     id: 1,
@@ -58,28 +41,6 @@ const projects = ref<Project[]>([
   },
 ]);
 
-const currentPos = computed(() => {
-  return (index.value * -itemWidth.value);
-});
-
-const countVisibleItem = () => {
-    if (refContainer.value) {
-        visibleItem.value = Math.floor(refContainer.value?.offsetWidth / itemWidth.value );
-    }
-    if (refItem.value) {
-        itemWidth.value = refItem.value?.[0].offsetWidth
-        console.log(refItem.value?.[0].offsetWidth)
-    }
-}
-onMounted(() => {
-    countVisibleItem();
-    window.addEventListener("resize", countVisibleItem);
-})
-
-onUnmounted(() => {
-    window.removeEventListener("resize", countVisibleItem);
-})
-
 </script>
 
 <template>
@@ -89,36 +50,6 @@ onUnmounted(() => {
     >
       My Projects
     </h2>
-    <div class="projects-container rounded-md bg-(--bg1) overflow-hidden" ref="refContainer">
-      <div
-        class="flex bg-transparent p-2 gap-4 transition-transform duration-500 ease-in-out"
-        :style="`transform: translateX(${currentPos}px)`"
-      >
-        <ProjectItem
-          v-for="(project, idx) in projects"
-          :key="project.id"
-          :title="project.title"
-          ref="refItem"
-          :date="project.date"
-          :image="project.image"    
-          :url="project.url"
-          class="w-full sm:min-w-[240px] md:min-w-[300px] border rounded-md text-center mb-2"
-        />
-      </div>
-    </div>
-    <button
-      @click="prevProject"
-      :disabled="index == 0"
-      class="absolute hover:cursor-pointer disabled:cursor-not-allowed top-1/2 -left-8 rounded-full size-12 shadow-gray-500 shadow-md bg-(--bg3) disabled:bg-(--fg4)"
-    >
-      <FontAwesomeIcon :icon="faAngleLeft" class="text-xl" />
-    </button>
-    <button
-      @click="nextProject"
-      :disabled="index == projects.length - visibleItem"
-      class="absolute hover:cursor-pointer disabled:cursor-not-allowed top-1/2 -right-8 rounded-full size-12 shadow-gray-500 shadow-md bg-(--bg3) disabled:bg-(--fg4)"
-    >
-    <FontAwesomeIcon :icon="faAngleRight" class="text-xl" />
-    </button>
+    <Carousel :item="projects" class="overflow-hidden rounded-sm inset-ring" />
   </section>
 </template>

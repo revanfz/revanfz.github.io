@@ -1,5 +1,4 @@
 <script setup>
-import { defineEmits } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 const emits = defineEmits(['sidebar'])
