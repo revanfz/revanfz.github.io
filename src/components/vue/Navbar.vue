@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import NavLink from "./NavLink.vue";
 const pages = [
   { name: "Home", id: "" },
@@ -7,67 +10,65 @@ const pages = [
   { name: "Tool", id: "projects" },
   { name: "Contact", id: "contact" },
 ];
-const isDarkMode = ref(false)
+const isDarkMode = ref(false);
 const switchMode = () => {
   if (isDarkMode.value) {
-    document.body.classList.remove("dark")
-    isDarkMode.value = false
+    document.body.classList.remove("dark");
+    isDarkMode.value = false;
   } else {
-    document.body.classList.add("dark")
-    isDarkMode.value = true
+    document.body.classList.add("dark");
+    isDarkMode.value = true;
   }
-}
+};
 onMounted(() => {
   const body = document.querySelector("body") as HTMLBodyElement;
   if (body.classList.contains("dark")) {
-    isDarkMode.value = true
+    isDarkMode.value = true;
   }
-})
+});
 </script>
 
 <template>
-  <div class="navbar">
+  <div>
     <a href="#" class="logo text-3xl font-extrabold">Revanfz</a>
-    <ul class="hidden sm:flex align-center flex-row">
+    <ul class="hidden sm:flex align-center flex-row gap-8">
       <NavLink
         v-for="page in pages"
         :key="page.id"
         :name="page.name"
         :id="page.id"
-        class="pl-4 text-xl"
+        class="text-2xl text-center"
       />
     </ul>
-    <div class="socials hidden lg:block">
-      <ul class="flex gap-4">
-        <li>
-          <button @click="switchMode">
-            <i class="fa-sharp fa-solid mode-icon" :class="{'fa-moon': !isDarkMode, 'fa-sun': isDarkMode}"></i>
-          </button>
-        </li>
-        <!-- Github -->
-        <li>
-          <a
-            href="https://github.com/revanfz"
-            target="_blank"
-            ><i class="fa-brands fa-github"></i
-          ></a>
-        </li>
-        <!-- LinkedIn -->
-        <li>
-          <a
-            href="https://linkedin.com/in/revanfauzialgifari"
-            target="_blank"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
-        </li>
-        <!-- Mail -->
-        <li>
-          <a class="p-2 bg-(--bg2) text-(--fg2) rounded-md"
-            href="mailto:revanfauzi81@gmail.com"
-            >Let's work together</a
+    <div class="contacts flex items-center gap-4 justify-end">
+      <button @click="switchMode">
+        <FontAwesomeIcon :icon="!isDarkMode ? faMoon : faSun" size="lg" />
+      </button>
+      <div class="socials hidden lg:block">
+        <ul class="flex items-center gap-4">
+          <!-- Github -->
+          <li>
+            <a href="https://github.com/revanfz" target="_blank">
+              <FontAwesomeIcon :icon="faGithub" size="lg" />
+            </a>
+          </li>
+          <!-- LinkedIn -->
+          <li>
+            <a
+              href="https://linkedin.com/in/revanfauzialgifari"
+              target="_blank"
+            >
+              <FontAwesomeIcon :icon="faLinkedin" size="lg" />
+            </a>
+          </li>
+          <!-- Mail -->
+          <li
+            class="p-2 bg-(--fg) text-(--bg) hover:bg-(--bg2) hover:text-(--fg2) rounded-md"
           >
-        </li>
-      </ul>
+            <a href="mailto:revanfauzi81@gmail.com">Let's work together</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

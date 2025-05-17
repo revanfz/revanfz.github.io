@@ -12,6 +12,6 @@ function handleSidebar() {
 
 <template>
   <button class="text-left" @click="handleSidebar">
-    <FontAwesomeIcon :icon="faBars" size="2xl" />
+    <FontAwesomeIcon :icon="faBars" size="xl"/>
   </button>
 </template>

@@ -1,8 +1,59 @@
 ---
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  faInstagram,
+  faFacebook,
+  faXTwitter,
+  faGithub,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 const { class: className, ...rest } = Astro.props;
 ---
+
 <footer class={className} {...rest}>
-    <div class="footer-content">
-        <p class="text-center"> Revan Fauzi Algifari &copy;</p>
+  <div class="main-footer flex flex-col md:flex-row *:flex-1 gap-4 lg:gap-[12rem] justify-center">
+    <div class="contacts">
+      <h2 class="text-(--bg1) text-lg lg:text-2xl font-bold">Contacts</h2>
+      <div class="contact-list text-md lg:text-xl text-(--bg4)">
+        <p class="phone">+62 896 5356 0888</p>
+        <p class="email">revanfauzialgifari@gmail.com</p>
+      </div>
     </div>
+    <div class="socials">
+      <h2 class="text-(--bg1) text-lg lg:text-2xl font-bold">Socials</h2>
+      <div class="socials flex gap-4">
+        <a href="https://instagram.com/refzlgfr" target="_blank">
+          <FontAwesomeIcon icon={faInstagram} class="text-2xl" />
+        </a>
+        <a href="https://facebook.com/refzlgfr" target="_blank">
+          <FontAwesomeIcon icon={faFacebook} class="text-2xl" />
+        </a>
+        <a href="https://x.com/revanfzlgfr" target="_blank">
+          <FontAwesomeIcon icon={faXTwitter} class="text-2xl" />
+        </a>
+
+        <a href="https://gihub.com/revanfz" target="_blank" class="lg:hidden">
+          <FontAwesomeIcon icon={faGithub} class="text-2xl" />
+        </a>
+        <a
+          href="https://linkedin.com/in/revanfauzialgifari"
+          target="_blank"
+          class="lg:hidden"
+        >
+          <FontAwesomeIcon icon={faLinkedin} class="text-2xl" />
+        </a>
+      </div>
+    </div>
+    <div class="useful-links">
+      <h2 class="text-(--bg1) text-lg lg:text-2xl font-bold">Useful Links</h2>
+      <ul class="text-sm lg:text-lg text-(--bg4) *:cursor-pointer">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="">Contacts</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="text-center md:text-right mt-6">
+    Copyright &copy; 2025 &bull; Revan Fauzi Algifari
+  </p>
 </footer>

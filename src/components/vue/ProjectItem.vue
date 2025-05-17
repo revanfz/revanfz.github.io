@@ -1,11 +1,6 @@
 <script setup lang="ts">
-const props = defineProps({
-  id: Number,
-  date: String,
-  title: String,
-  url: String,
-  image: String,
-});
+import type { Project } from "@interfaces/Project"
+const props = defineProps<Project>()
 </script>
 
 <template>
@@ -15,11 +10,11 @@ const props = defineProps({
     >
       <h3>{{ props.title }}</h3>
     </div>
-    <div class="card-body py-2 h-3/5">
+    <div class="card-body h-3/5">
       <img
         :src="props.image"
         :alt="props.title + ' thumbnail'"
-        class="w-full h-full object-contain"
+        class="w-full h-full object-cover"
       />
     </div>
     <div

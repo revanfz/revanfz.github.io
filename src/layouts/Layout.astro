@@ -1,9 +1,11 @@
 ---
+import "../styles/global.css"
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import Footer from "../components/Footer.astro";
 import Header from "../components/vue/Header.vue";
-import "../styles/global.css"
----
 
+
+---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -18,12 +20,12 @@ import "../styles/global.css"
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="bg-(--bg) text-(--fg) box-border scroll-smooth">
+  <body class="bg-(--bg) text-(--fg) box-border scroll-smooth transition-colors duration-300 ease-in-out">
     <Header
-      class="sticky w-full z-50 bg-transparent md:backdrop-blur-sm items-center"
+      class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-sm items-center"
       client:load
     />
     <slot />
-    <Footer class="relative bottom-0 w-full my-10" />
+    <Footer class="relative bottom-0 w-full bg-(--fg) text-(--bg) mt-8 p-8 lg:p-12 md:flex-row gap-4 [&_h2]:pb-1" />
   </body>
 </html>
