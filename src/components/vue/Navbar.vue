@@ -65,7 +65,7 @@ onMounted(() => {
           <li
             class="p-2 bg-(--fg) text-(--bg) hover:bg-(--bg2) hover:text-(--fg2) rounded-md"
           >
-            <a href="mailto:revanfauzi81@gmail.com">Let's work together</a>
+            <a href="mailto:revanfauzi81@gmail.com" class="text-md lg:text-xl">Let's work together</a>
           </li>
         </ul>
       </div>
