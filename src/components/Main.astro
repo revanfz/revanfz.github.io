@@ -10,9 +10,9 @@ const { class: className, ...rest } = Astro.props;
 <main class={className} {...rest}>
   <Home
     id="home"
-    class="flex size-full flex-col items-center justify-between gap-[150px] md:gap-[200px] lg:flex-row landscape:h-screen md:portrait:h-[640px]"
+    class="flex flex-col relative items-center justify-between lg:flex-row h-screen max-h-[640px] lg:max-h-screen md:portrait:h-[640px]"
   />
-  <About id="about" class="mt-40 lg:mt-0 potrait:h-full lg:h-screen" />
-  <Project client:load id="projects" class="mt-5 lg:mt-0" />
+  <About id="about" class="relative lg:w-screen lg:left-1/2 lg:-translate-x-1/2 lg:px-30 lg:py-20 lg:mt-0 potrait:h-full lg:h-full lg:bg-[url('/bg.jpg')] lg:bg-cover lg:bg-center" />
+  <Project client:load id="projects" class="my-12" />
   <Toolbox id="toolbox" class="mt-5 h-full" />
 </main>

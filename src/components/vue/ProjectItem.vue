@@ -6,7 +6,7 @@ const props = defineProps<Project>()
 <template>
   <div>
     <div
-      class="flex card-header border-(--bg) font-bold py-2 bg-(--bg2) text-(--fg2) text-center h-1/5 rounded-t-sm items-center justify-center"
+      class="flex card-header font-bold py-2 bg-(--bg2) text-(--fg2) text-center h-1/5 rounded-t-sm items-center justify-center"
     >
       <h3>{{ props.title }}</h3>
     </div>

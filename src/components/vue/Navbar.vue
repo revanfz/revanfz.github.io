@@ -7,24 +7,21 @@ import NavLink from "./NavLink.vue";
 const pages = [
   { name: "Home", id: "" },
   { name: "About", id: "about" },
-  { name: "Tool", id: "projects" },
-  { name: "Contact", id: "contact" },
+  { name: "Projects", id: "projects" },
+  // { name: "Contact", id: "contact" },
 ];
 const isDarkMode = ref(false);
 const switchMode = () => {
-  if (isDarkMode.value) {
-    document.body.classList.remove("dark");
-    isDarkMode.value = false;
-  } else {
-    document.body.classList.add("dark");
-    isDarkMode.value = true;
-  }
+  document.documentElement.classList.toggle("dark");
+  isDarkMode.value = !isDarkMode.value;
 };
 onMounted(() => {
-  const body = document.querySelector("body") as HTMLBodyElement;
-  if (body.classList.contains("dark")) {
-    isDarkMode.value = true;
+  isDarkMode.value = localStorage.theme === "dark";
+  if (isDarkMode.value || window.matchMedia("(prefers-color-scheme: dark)").matches)  {
+    localStorage.theme = "dark";
+    switchMode();
   }
+  else localStorage.theme = "light";
 });
 </script>
 

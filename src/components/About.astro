@@ -10,11 +10,11 @@ const age = now.getFullYear() - 2002;
   >
     About Me
   </h2>
-  <div class="description flex flex-col-reverse items-center justify-center gap-[50px] lg:flex-row">
+  <div class="description flex flex-col-reverse text-[#fbf1c7] items-center justify-center gap-[50px] lg:flex-row">
     <div class="flex flex-col gap-[20px] lg:w-1/2">
       <p>
         Hi! My name is Revan Fauzi Algifari, {
-          age - (now.getMonth() > 5 ? 0 : 1)
+          age - (now.getMonth() < 5 ? 0 : 1)
         } years old. I am an Informatics Engineering fresh gradute from
         Institut Teknologi Sumatera (ITERA).
       </p>
@@ -31,7 +31,7 @@ const age = now.getFullYear() - 2002;
         business growth and operational efficiency
       </p>
     </div>
-    <div class="photo grid items-center justify-center rounded border border-(--dark-green) bg-(--dark-green) shadow-[14px_14px_var(--aqua)] max-w-[60vw] lg:w-1/2">
+    <div class="photo grid items-center justify-center rounded-xl border border-(--dark-green) bg-(--dark-green) shadow-[14px_14px_var(--aqua)] max-w-[60vw] lg:w-1/2">
         <img src="profile.png" alt="Profie picture of Revan Fauzi Algifari" class="max-w-[500px] w-full" />
     </div>
   </div>

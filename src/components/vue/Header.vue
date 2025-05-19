@@ -21,7 +21,7 @@ function toggleSidebar() {
         @sidebar="toggleSidebar"
       />
       <Navbar
-        class="-ml-14 items-center *:flex-1 flex text-center md:text-left sm:m-0"
+        class="-ml-14 items-center justify-between md:justify-between flex text-center md:text-left sm:m-0"
       />
     </div>
     <Sidebar

@@ -110,7 +110,7 @@ onUnmounted(() => {
           :date="project.date"
           :image="project.image"
           :url="project.url"
-          class="w-[240px] lg:min-w-[380px] rounded-md border border-(--bg2)"
+          class="min-w-full md:min-w-[335px] lg:min-w-[400px] rounded-md border-2 border-(--bg4)"
         />
       </div>
       <div class="indicator flex justify-center mt-2 gap-px">
